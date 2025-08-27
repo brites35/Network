@@ -1,5 +1,32 @@
 {% extends "network/layout.html" %}
+{% load static %}
 
 {% block body %}
-    TODO
+    {% if user.is_authenticated %}
+        <div id="posts_page" style="display: block;">
+            <div id="New_Post">
+                <h2>New Post</h2>
+                <form id="post-form" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <textarea class="form-control" id="post_content" placeholder="What's on your mind?" rows="3"></textarea>
+                    </div>
+                    <button style="width: 70px; margin-bottom: 20px;" id="submit" type="submit">Post</button>
+                </form>
+            </div>
+            
+            <div id="Posts">
+            </div>
+        </div>
+
+        <div class="container" id="profile_page" style="display: none;">
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block script %}
+    <script>
+        window.currentUser = "{{ request.user.username|escapejs }}";
+    </script>
+    <script src="{% static 'network/network.js' %}"></script>
 {% endblock %}

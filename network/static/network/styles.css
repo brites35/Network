@@ -1,0 +1,25 @@
+h2{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+h3{
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.post {
+    padding: 30px;
+    margin-top: 20px;
+    border: 1px solid #474747;
+}
+
+.Date {
+    font-size: 12px;
+    color: #888888;
+}
+
+.username {
+    display: inline-block;
+    margin: 0;
+}
