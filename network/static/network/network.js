@@ -77,8 +77,12 @@ function renderPosts(posts, container, current_page, num_pages, paginationCallba
                     liked: likeImg.src.includes('heart-full-icon.jpg')
                 })
             })
-            .then(() => {
-                if (paginationCallback) paginationCallback(current_page);
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                // Update likes count in UI only
+                postElement.querySelector('.likes-count').textContent = data.likes;
             });
         });
 
